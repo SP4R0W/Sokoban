@@ -76,7 +76,7 @@ func add_move(move):
 	print(history_moves)
 	
 func execute_past_move():
-	if (history_moves.size() < 1):
+	if (history_moves.size() < 1 || is_moving):
 		return
 	
 	is_moving = true
@@ -117,13 +117,14 @@ func execute_past_move():
 			has_pushed = true
 			Global.pushes -= 1
 	
-	yield(tween,"tween_all_completed")
-	
 	history_moves.pop_front()
 	if (has_pushed):
 		history_moves.pop_front()
 		
+	yield(tween,"tween_all_completed")
+		
 	is_moving = false
+	
 	print(history_moves)
 	
 

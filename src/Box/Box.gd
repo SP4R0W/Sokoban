@@ -5,8 +5,13 @@ onready var ray = $RayCast2D
 
 var secures: Array = []
 
+export(String, "1", "2", "3", "4", "5") var box_type = "1"
+
 signal box_secure(box)
 signal box_remove(box)
+
+func _ready():
+	$AnimatedSprite.animation = box_type
 
 func can_move() -> bool:
 	if (ray.is_colliding()):
