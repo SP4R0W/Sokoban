@@ -55,6 +55,26 @@ func check_for_move(dir: String) -> bool:
 	
 	return false
 
+func exec_past_move(dir: String):
+	match dir:
+		"up":
+			ray.cast_to = Vector2(0,64)
+			ray.force_raycast_update()
+			tween.interpolate_property(self,"global_position:y",global_position.y,global_position.y+128,0.2)
+		"down":
+			ray.cast_to = Vector2(0,-64)
+			ray.force_raycast_update()
+			tween.interpolate_property(self,"global_position:y",global_position.y,global_position.y-128,0.2)
+		"left":
+			ray.cast_to = Vector2(64,0)
+			ray.force_raycast_update()
+			tween.interpolate_property(self,"global_position:x",global_position.x,global_position.x+128,0.2)
+		"right":
+			ray.cast_to = Vector2(-64,0)
+			ray.force_raycast_update()
+			tween.interpolate_property(self,"global_position:x",global_position.x,global_position.x-128,0.2)
+	
+	tween.start()
 	
 func check_secure():
 	print(secures)
