@@ -1,0 +1,242 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Fonts/Title_font_256.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/Button_font_92.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/Options/Options.gd" type="Script" id=3]
+[ext_resource path="res://assets/UI/buttonHover.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/button.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Options"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/CanvasLayer/Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.1, 0.75 ),
+"update": 0,
+"values": [ Vector2( 1386.5, -500 ), Vector2( 1386.5, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/CanvasLayer/Music:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 0.3, 0.5 ),
+"update": 0,
+"values": [ Vector2( -1000, 900 ), Vector2( -1000, 900 ), Vector2( 727, 900 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/CanvasLayer/SFX:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 0.3, 0.5 ),
+"update": 0,
+"values": [ Vector2( 4374, 900 ), Vector2( 4374, 900 ), Vector2( 2647, 900 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/CanvasLayer/VBoxContainer:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 0.3, 0.5 ),
+"update": 0,
+"values": [ Vector2( -1000, 1850 ), Vector2( -1000, 1850 ), Vector2( 1645, 1850 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/CanvasLayer/Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1369.5, -500 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/CanvasLayer/VBoxContainer/Exit_button:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 750 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/CanvasLayer/VBoxContainer:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 550, 175 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/CanvasLayer/Music:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1000, 900 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/CanvasLayer/SFX:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2647, 900 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control/CanvasLayer/VBoxContainer:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1645, 1850 ) ]
+}
+
+[node name="Options" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="Title" type="Label" parent="Control/CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 1369.5
+margin_top = -500.0
+margin_right = 2436.5
+margin_bottom = -167.0
+custom_fonts/font = ExtResource( 1 )
+text = "OPTIONS:"
+align = 1
+
+[node name="Music" type="VBoxContainer" parent="Control/CanvasLayer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -1000.0
+margin_top = 900.0
+margin_right = -534.0
+margin_bottom = 1041.0
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/Music"]
+margin_right = 466.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 2 )
+text = "music: 6"
+align = 1
+
+[node name="MusicSlider" type="HSlider" parent="Control/CanvasLayer/Music"]
+margin_top = 125.0
+margin_right = 466.0
+margin_bottom = 141.0
+min_value = -80.0
+max_value = 6.0
+value = 6.0
+rounded = true
+
+[node name="SFX" type="VBoxContainer" parent="Control/CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 2647.0
+margin_top = 900.0
+margin_right = 3113.0
+margin_bottom = 1041.0
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/SFX"]
+margin_right = 466.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 2 )
+text = "SFX: 6"
+align = 1
+
+[node name="SFXSlider" type="HSlider" parent="Control/CanvasLayer/SFX"]
+margin_top = 125.0
+margin_right = 466.0
+margin_bottom = 141.0
+min_value = -80.0
+max_value = 6.0
+value = -80.0
+rounded = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1645.0
+margin_top = 1850.0
+margin_right = 2195.0
+margin_bottom = 2025.0
+custom_constants/separation = 75
+
+[node name="Exit_button" type="TextureButton" parent="Control/CanvasLayer/VBoxContainer"]
+margin_top = 750.0
+margin_right = 550.0
+margin_bottom = 925.0
+rect_min_size = Vector2( 550, 130 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/VBoxContainer/Exit_button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.5
+margin_top = -60.5
+margin_right = 108.5
+margin_bottom = 60.5
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Options = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="drag_ended" from="Control/CanvasLayer/Music/MusicSlider" to="." method="_on_MusicSlider_drag_ended"]
+[connection signal="drag_ended" from="Control/CanvasLayer/SFX/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Exit_button" to="." method="_on_Exit_button_pressed"]

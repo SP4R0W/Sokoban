@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Fonts/Title_font_256.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/Button_font_92.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/Fonts/Lemon Days.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/UI/buttonHover.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/button.png" type="Texture" id=5]
+[ext_resource path="res://src/Credits/Credits.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Credits"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/CanvasLayer/Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.1, 0.75 ),
+"update": 0,
+"values": [ Vector2( 1369.5, -500 ), Vector2( 1369.5, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/CanvasLayer/Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/CanvasLayer/VBoxContainer:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 0.3, 0.5 ),
+"update": 0,
+"values": [ Vector2( -1000, 1850 ), Vector2( -1000, 1850 ), Vector2( 1645, 1850 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/CanvasLayer/Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1369.5, -500 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/CanvasLayer/VBoxContainer/Exit_button:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 750 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/CanvasLayer/Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/CanvasLayer/VBoxContainer:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 550, 175 ) ]
+}
+
+[node name="Credits" type="Node2D"]
+position = Vector2( 5, -5 )
+script = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="Title" type="Label" parent="Control/CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 1369.5
+margin_top = -500.0
+margin_right = 2350.5
+margin_bottom = -167.0
+custom_fonts/font = ExtResource( 1 )
+text = "CREDITS:"
+align = 1
+
+[node name="Credits" type="Label" parent="Control/CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1750.0
+margin_top = -625.0
+margin_right = 1750.0
+margin_bottom = 625.0
+custom_fonts/font = SubResource( 1 )
+text = "Developed by sparrowworks:
+programmer - sp4r0w
+tester - varga
+
+assets:
+hyper casual ui by MadFireOn
+sokoban asset pack - kenney
+Ultimate UI SFX Pack by JDSherbert
+Casual Game Vol 2 by Zakiro
+Free Game Menu Music Pack by VOiD1 Gaming"
+align = 1
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 15085.0
+margin_top = 1850.0
+margin_right = 15635.0
+margin_bottom = 2025.0
+custom_constants/separation = 75
+
+[node name="Exit_button" type="TextureButton" parent="Control/CanvasLayer/VBoxContainer"]
+margin_top = 750.0
+margin_right = 550.0
+margin_bottom = 925.0
+rect_min_size = Vector2( 550, 130 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/VBoxContainer/Exit_button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.5
+margin_top = -60.5
+margin_right = 108.5
+margin_bottom = 60.5
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Credits = SubResource( 4 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Exit_button" to="." method="_on_Exit_button_pressed"]

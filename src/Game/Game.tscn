@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/Fonts/Button_font_92.tres" type="DynamicFont" id=2]
@@ -7,9 +7,19 @@
 [ext_resource path="res://src/Game/UI.gd" type="Script" id=5]
 [ext_resource path="res://assets/UI/panel.png" type="Texture" id=6]
 [ext_resource path="res://assets/Fonts/Lemon Days.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/track2.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/track1.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/track5.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/track3.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/track4.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/win.ogg" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 52
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -115,13 +125,21 @@ align = 1
 self_modulate = Color( 0, 0, 0, 0 )
 margin_top = 854.0
 margin_right = 550.0
-margin_bottom = 1054.0
-custom_constants/separation = 200
+margin_bottom = 954.0
+custom_constants/separation = 100
+
+[node name="Pushes2" type="Label" parent="UI/CanvasLayer/TextureRect/VBoxContainer"]
+margin_top = 958.0
+margin_right = 550.0
+margin_bottom = 1026.0
+custom_fonts/font = SubResource( 3 )
+text = "Press R to restart"
+align = 1
 
 [node name="Menu_button" type="TextureButton" parent="UI/CanvasLayer/TextureRect/VBoxContainer"]
-margin_top = 1058.0
+margin_top = 1030.0
 margin_right = 550.0
-margin_bottom = 1233.0
+margin_bottom = 1205.0
 rect_min_size = Vector2( 550, 130 )
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
@@ -278,6 +296,24 @@ text = "Menu"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="track1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="track2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="track3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="track4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="track5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="pressed" from="UI/CanvasLayer/TextureRect/VBoxContainer/Menu_button" to="." method="_on_Menu_button_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/LevelFinish/Next_button" to="." method="_on_Next_button_pressed"]

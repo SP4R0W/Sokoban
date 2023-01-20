@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/Background/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/UI/buttonclick.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/menutheme.mp3" type="AudioStream" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,3 +23,10 @@ color = Color( 0, 0, 0, 1 )
 [node name="ParallaxBackground" parent="Control" instance=ExtResource( 2 )]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="menuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

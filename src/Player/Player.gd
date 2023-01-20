@@ -72,9 +72,7 @@ func add_move(move):
 	
 	if (history_moves.size() > 50):
 		history_moves.pop_back()	
-	
-	print(history_moves)
-	
+
 func execute_past_move():
 	if (history_moves.size() < 1 || is_moving):
 		return
@@ -109,9 +107,9 @@ func execute_past_move():
 	Global.moves -= 1
 			
 	tween.start()
+	$Walk.play()
 	
 	if (history_moves.size() > 1):
-		print(typeof(history_moves[1]))
 		if (typeof(history_moves[1]) == TYPE_ARRAY):
 			history_moves[1][1].exec_past_move(history_moves[1][0])
 			has_pushed = true
@@ -124,8 +122,6 @@ func execute_past_move():
 	yield(tween,"tween_all_completed")
 		
 	is_moving = false
-	
-	print(history_moves)
 	
 
 func execute_move():
@@ -176,6 +172,7 @@ func execute_move():
 					add_move([move,box])
 			
 	tween.start()
+	$Walk.play()
 	
 	yield(tween,"tween_all_completed")
 	
@@ -186,3 +183,4 @@ func execute_move():
 func _on_Area2D_area_entered(area):
 	if (area.is_in_group("coins")):
 		area.score()
+		$Coin.play()

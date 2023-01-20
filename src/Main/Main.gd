@@ -2,16 +2,9 @@ extends Node2D
 
 
 func _ready():
+	Global.button_click_sfx = $ButtonClick
+	Global.menu_theme = $menuTheme
+	
 	randomize()
-	load_level_folder()
-	
-	Composer.goto_scene(Global.scene_paths["mainmenu"],true,false,0.5,1)
 
-func load_level_folder():
-	var dir = Directory.new()
-	var level_path = "user://levels"
-	
-	if (dir.open(level_path) == OK):
-		print("Folder found")
-	else:
-		dir.make_dir_recursive(level_path)
+	Composer.goto_scene(Global.scene_paths["mainmenu"],true,false,0.5,1)

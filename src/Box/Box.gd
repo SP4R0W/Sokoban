@@ -1,3 +1,4 @@
+tool
 extends Area2D
 
 onready var tween = $Tween
@@ -93,6 +94,7 @@ func check_secure():
 		if (secure.get_node("AnimatedSprite").animation == $AnimatedSprite.animation):
 			$AnimatedSprite.modulate = Color(0,1,0,1)
 			emit_signal("box_secure",self)
+			$Secure.play()
 			break
 		else:
 			$AnimatedSprite.modulate = Color(1,1,1,1)

@@ -1,5 +1,6 @@
 extends Node2D
 
+var track: AudioStreamPlayer
 
 func _ready():
 	Global.score = 0
@@ -8,6 +9,14 @@ func _ready():
 	Global.pushes = 0
 	
 	load_game_level()
+	
+	if (Global.menu_theme.playing):
+		Global.menu_theme.stop()
+		
+	var track_id = int(rand_range(1,5))
+
+	track = get_node("track" + str(track_id))
+	track.play()
 
 func load_game_level():
 	var path = "res://src/Levels/" + str(Global.level) + "/Level.tscn"
@@ -20,10 +29,14 @@ func load_game_level():
 	$UI/CanvasLayer/LevelFinish.hide()
 	
 func level_complete():
+	track.stop()
+	
 	$Timer.stop()
 	$UI/CanvasLayer/TextureRect.hide()
 	
 	$UI/CanvasLayer/LevelFinish.show()
+	
+	$Win.play()
 	
 	if (Global.level == 24):
 		$UI/CanvasLayer/LevelFinish/Next_button.hide()
