@@ -13,7 +13,7 @@ config_version=4
 config/name="Sokoban_remake"
 run/main_scene="res://src/Main/Main.tscn"
 boot_splash/show_image=false
-config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

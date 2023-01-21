@@ -10,6 +10,12 @@ extends Node2D
 func _ready():
 	$AnimationPlayer.play("Menu")
 	
+	var name = OS.get_name()
+	if (name == "HTML5"):
+		$Control/CanvasLayer/VBoxContainer/Exit_button.hide()
+	else:
+		$Control/CanvasLayer/VBoxContainer/Exit_button.show()
+	
 	if (!Global.menu_theme.playing):
 		Global.menu_theme.play()
 

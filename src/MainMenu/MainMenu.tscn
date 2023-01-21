@@ -145,9 +145,9 @@ anchor_bottom = 1.0
 [node name="Title" type="Label" parent="Control/CanvasLayer"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 1369.5
+margin_left = -550.5
 margin_top = -500.0
-margin_right = 2470.5
+margin_right = 550.5
 margin_bottom = -167.0
 custom_fonts/font = ExtResource( 2 )
 text = "Sokoban"
