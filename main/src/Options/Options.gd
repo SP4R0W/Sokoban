@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
 	$AnimationPlayer.play("Options")
 
-	$Control/CanvasLayer/Music/Label.text = "Music " + str(Global.music_vol)
+	$Control/CanvasLayer/Music/Label.text = "Music: " + str(Global.music_vol)
 	$Control/CanvasLayer/SFX/Label.text = "SFX: " + str(Global.sfx_vol)
 
 	$Control/CanvasLayer/Music/MusicSlider.value = Global.music_vol
@@ -24,14 +24,14 @@ func _unhandled_input(event):
 func _on_MusicSlider_drag_ended(value_changed):
 	if (value_changed):
 		Global.music_vol = $Control/CanvasLayer/Music/MusicSlider.value
-		$Control/CanvasLayer/Music/Label.text = "Music " + str(Global.music_vol)
+		$Control/CanvasLayer/Music/Label.text = "Music: " + str(Global.music_vol)
 
 		# Set the volume for Music
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),Global.music_vol)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear2db(Global.music_vol/100))
 
 func _on_SFXSlider_drag_ended(value_changed):
 	if (value_changed):
 		Global.sfx_vol = $Control/CanvasLayer/SFX/SFXSlider.value
 		$Control/CanvasLayer/SFX/Label.text = "SFX: " + str(Global.sfx_vol)
 
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),Global.sfx_vol)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear2db(Global.sfx_vol/100))

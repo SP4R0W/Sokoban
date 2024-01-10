@@ -5,8 +5,8 @@ func _ready():
 	Global.button_click_sfx = $ButtonClick
 	Global.menu_theme = $menuTheme
 
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),Global.music_vol)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),Global.sfx_vol)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear2db(Global.music_vol/100))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear2db(Global.sfx_vol/100))
 
 	randomize()
 
